@@ -29,14 +29,23 @@ func main() {
 		num := strings.Join(str[1:len(str)], "")
 		val, _ := strconv.Atoi(num)
 		if dir == "R" {
-			cv = cv + val
+			if (cv + val) > 99 {
+				cv = cv + val - 100
+			} else {
+				cv = cv + val
+			}
 		} else {
-			cv = cv - val
+			if val > cv {
+				fmt.Println("value:", val, "Is greater than current value:", cv)
+				val = val - cv
+				cv = 100 - val
+			} else {
+				cv = cv - val
+			}
 		}
 
 		if cv == 0 {
 			counter++
-			fmt.Println(counter)
 		}
 
 	}
