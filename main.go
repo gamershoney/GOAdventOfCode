@@ -36,13 +36,9 @@ func main() {
 			val = val % 100
 		}
 		if val == 0 {
-			fmt.Println("No increments made")
 			break
 		}
 
-		if val == prev {
-			fmt.Println("Val: ", val, "== Previous Val: ", prev)
-		}
 		if dir == "R" {
 			if (cv + val) > 99 {
 				cv = cv + val - 100
@@ -61,7 +57,6 @@ func main() {
 			fmt.Println("error: ", err)
 		}
 		if (prev == 0) && (cv == 0) {
-			fmt.Println("Double 0, breaking")
 			break
 		}
 
@@ -69,13 +64,6 @@ func main() {
 			counter++
 		}
 
-		if cv > 99 {
-			fmt.Println("Error cv is greater than 99 at: ", cv)
-		}
-
-		if cv < 0 {
-			fmt.Println("Error CV is: ", cv)
-		}
 		prev = cv
 		cL++
 		fmt.Println("Read ", cL, "Lines")
