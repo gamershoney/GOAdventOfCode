@@ -27,7 +27,7 @@ func main() {
 		dir := str[0]
 
 		num := strings.Join(str[1:len(str)], "")
-		val, _ := strconv.Atoi(num)
+		val, err := strconv.Atoi(num)
 		if dir == "R" {
 			if (cv + val) > 99 {
 				cv = cv + val - 100
@@ -42,6 +42,9 @@ func main() {
 			} else {
 				cv = cv - val
 			}
+		}
+		if err != nil {
+			fmt.Println("error: ", err)
 		}
 
 		if cv == 0 {
