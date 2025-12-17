@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -14,6 +15,7 @@ var cv int = 0
 var counter int = 0
 
 func main() {
+	reg := regexp.MustCompile(`\D`)
 	items, err := os.ReadFile(file)
 
 	if err != nil {
@@ -27,6 +29,7 @@ func main() {
 		dir := str[0]
 
 		num := strings.Join(str[1:len(str)], "")
+		num = reg.ReplaceAllString(num, "")
 		val, _ := strconv.Atoi(num)
 		if dir == "R" {
 			cv = cv + val
