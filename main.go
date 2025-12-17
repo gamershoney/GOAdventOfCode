@@ -29,11 +29,8 @@ func main() {
 		dir := str[0]
 
 		num := strings.Join(str[1:len(str)], "")
-<<<<<<< HEAD
 		num = reg.ReplaceAllString(num, "")
-=======
 		val, err := strconv.Atoi(num)
->>>>>>> 131246bee1e6b1d00b5e12af7db725a1b0b3ce8d
 		if dir == "R" {
 			if (cv + val) > 99 {
 				cv = cv + val - 100
