@@ -29,17 +29,32 @@ func main() {
 		dir := str[0]
 
 		num := strings.Join(str[1:len(str)], "")
+<<<<<<< HEAD
 		num = reg.ReplaceAllString(num, "")
-		val, _ := strconv.Atoi(num)
+=======
+		val, err := strconv.Atoi(num)
+>>>>>>> 131246bee1e6b1d00b5e12af7db725a1b0b3ce8d
 		if dir == "R" {
-			cv = cv + val
+			if (cv + val) > 99 {
+				cv = cv + val - 100
+			} else {
+				cv = cv + val
+			}
 		} else {
-			cv = cv - val
+			if val > cv {
+				fmt.Println("value:", val, "Is greater than current value:", cv)
+				val = val - cv
+				cv = 100 - val
+			} else {
+				cv = cv - val
+			}
+		}
+		if err != nil {
+			fmt.Println("error: ", err)
 		}
 
 		if cv == 0 {
 			counter++
-			fmt.Println(counter)
 		}
 
 	}
